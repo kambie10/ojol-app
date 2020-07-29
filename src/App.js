@@ -9,18 +9,12 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
+import Router from './router';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Text>Hello O-jol App</Text>
-        </ScrollView>
-      </SafeAreaView>
+      <Router />
     </NavigationContainer>
   );
 };
