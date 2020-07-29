@@ -8,7 +8,13 @@ const Router = () => {
   return (
     <Stact.Navigator>
       <Stact.Screen name="Splash" component={Splash} />
-      <Stact.Screen name="WelcomeAuth" component={WelcomeAuth} />
+      <Stact.Screen
+        name="WelcomeAuth"
+        component={WelcomeAuth}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stact.Screen name="Register" component={Register} />
       <Stact.Screen name="Login" component={Login} />
     </Stact.Navigator>
