@@ -7,7 +7,13 @@ const Stact = createStackNavigator();
 const Router = () => {
   return (
     <Stact.Navigator>
-      <Stact.Screen name="Splash" component={Splash} />
+      <Stact.Screen
+        name="Splash"
+        component={Splash}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stact.Screen
         name="WelcomeAuth"
         component={WelcomeAuth}
@@ -15,8 +21,20 @@ const Router = () => {
           headerShown: false,
         }}
       />
-      <Stact.Screen name="Register" component={Register} />
-      <Stact.Screen name="Login" component={Login} />
+      <Stact.Screen
+        name="Register"
+        component={Register}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stact.Screen
+        name="Login"
+        component={Login}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stact.Navigator>
   );
 };

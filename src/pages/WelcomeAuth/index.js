@@ -5,7 +5,11 @@ import ActionButton from './ActionButton';
 import {colors} from '../../utils/colors';
 import {welcomeAuth} from '../../assets';
 
-export default function WelcomeAuth() {
+export default function WelcomeAuth({navigation}) {
+  const handleGoTo = (screen) => {
+    navigation.navigate(screen);
+  };
+
   return (
     <View style={styles.wrapper.page}>
       <Image source={welcomeAuth} style={styles.wrapper.illustration} />
@@ -13,10 +17,12 @@ export default function WelcomeAuth() {
       <ActionButton
         desc="Silahkan masuk, jika anda sudah memiliki akun"
         title="Masuk"
+        onPress={() => handleGoTo('Login')}
       />
       <ActionButton
         desc="atau silahkan daftar jika anda belum memiliki akun,"
         title="Daftar"
+        onPress={() => handleGoTo('Register')}
       />
     </View>
   );
@@ -33,7 +39,6 @@ const styles = {
     illustration: {
       width: 219,
       height: 117,
-      backgroundColor: colors.default,
       marginBottom: 10,
     },
   },
