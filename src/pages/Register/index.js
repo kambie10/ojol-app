@@ -2,11 +2,11 @@ import React from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import {Input, Button} from '../../components';
 import {colors} from '../../utils/colors';
-import {IconBack, IllustrationsRegister} from '../../assets';
+import {IllustrationsRegister} from '../../assets';
 import {useSelector, useDispatch} from 'react-redux';
 import {setForm} from '../../redux';
 
-export default function Register() {
+export default function Register({navigation}) {
   const {form} = useSelector((state) => state.RegisterReducer);
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export default function Register() {
   return (
     <View style={styles.wrapper.page}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <IconBack width={25} height={25} />
+        <Button type="icon" name="back" onPress={() => navigation.goBack()} />
         <IllustrationsRegister
           width={106}
           height={115}
