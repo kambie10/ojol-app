@@ -1,27 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import {Input, Button} from '../../components';
 import {colors} from '../../utils/colors';
 import {IconBack, IllustrationsRegister} from '../../assets';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {setForm} from '../../redux';
 
 export default function Register() {
-  const RegisterReducer = useSelector((state) => state.RegisterReducer);
-  const [form, setForm] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-  });
+  const {form} = useSelector((state) => state.RegisterReducer);
+  const dispatch = useDispatch();
 
   const sendData = () => {
     console.log('send data', form);
   };
 
   const onInputChange = (input, value) => {
-    setForm({
-      ...form,
-      [input]: value,
-    });
+    dispatch(setForm(input, value));
   };
 
   return (
@@ -34,8 +28,7 @@ export default function Register() {
           style={styles.illustration}
         />
         <Text style={styles.text.desc}>
-          Mohon mengisi beberapa data untuk proses daftar anda{' '}
-          {RegisterReducer.title}
+          Mohon mengisi beberapa data untuk proses daftar anda
         </Text>
         <View style={styles.space(64)} />
         <Input
