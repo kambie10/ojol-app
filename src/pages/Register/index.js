@@ -3,8 +3,10 @@ import {Text, View, ScrollView} from 'react-native';
 import {Input, Button} from '../../components';
 import {colors} from '../../utils/colors';
 import {IconBack, IllustrationsRegister} from '../../assets';
+import {useSelector} from 'react-redux';
 
 export default function Register() {
+  const RegisterReducer = useSelector((state) => state.RegisterReducer);
   const [form, setForm] = useState({
     fullName: '',
     email: '',
@@ -32,7 +34,8 @@ export default function Register() {
           style={styles.illustration}
         />
         <Text style={styles.text.desc}>
-          Mohon mengisi beberapa data untuk proses daftar anda
+          Mohon mengisi beberapa data untuk proses daftar anda{' '}
+          {RegisterReducer.title}
         </Text>
         <View style={styles.space(64)} />
         <Input
